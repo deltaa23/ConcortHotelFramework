@@ -17,6 +17,6 @@ public class TC_001 {
         Assert.assertEquals(actualUrl,expectedUrl,"url ler uyusmuyor");
         Driver.closeDriver();
     }
-
+// yazi
 
 }
