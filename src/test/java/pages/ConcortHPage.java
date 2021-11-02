@@ -5,13 +5,13 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import utilities.Driver;
-import java.util.List;
+
 public class ConcortHPage {
 
 
     public ConcortHPage() {
-            PageFactory.initElements(Driver.getDriver(),this);
-        }
+        PageFactory.initElements(Driver.getDriver(), this);
+    }
 
     @FindBy(linkText = "Log in")
     public WebElement ilkLoginLinki;
@@ -25,10 +25,8 @@ public class ConcortHPage {
     @FindBy(id = "btnSubmit")
     public WebElement loginButonu;
 
-
-    @FindBy (xpath = "//span[text()='Hotel Management']")
+    @FindBy(xpath = "//span[text()='Hotel Management']")
     public WebElement HotelManagement;
-
 
     @FindBy(partialLinkText = "Hotel List")
     public WebElement HotelListLink;
@@ -56,7 +54,5 @@ public class ConcortHPage {
 
     @FindBy(id = "btnSubmit")
     public WebElement Savebutonu;
-
-
 
 }
