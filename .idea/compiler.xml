@@ -6,6 +6,7 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="ConcortHotelFramework" />
         <module name="ccc" />
         <module name="deneme" />
         <module name="ConcortHotel" />
