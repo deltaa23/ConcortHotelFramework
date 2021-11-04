@@ -48,6 +48,7 @@ public class TestBaseReport {
         loginPage.passwordKutusu.sendKeys(ConfigReader.getProperty("password"));
         loginPage.loginButonu.click();
     }
+
     @AfterMethod(alwaysRun = true)//In AfterMethod, we are getting the screenshots and attaching the report when test fails
     public void tearDownMethod(ITestResult result) throws IOException {
         if (result.getStatus() == ITestResult.FAILURE) {//When test case fails, then take the screenshot and attached the report
