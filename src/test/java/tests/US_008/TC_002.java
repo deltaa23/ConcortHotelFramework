@@ -44,6 +44,7 @@ public class TC_002 extends TestBaseReport {
         page.price.sendKeys(ConfigReader.getProperty("price"));
 
         extentTest.info("DateStart kismindan secim yapti");
+
         page.listOfDateButtons.get(1).click();
         ReusableMethods.waitFor(2);
         if (page.listOfDays.size()==0){
