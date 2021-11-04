@@ -17,6 +17,10 @@ public class ConcortHotelPage {
 
     }
 
+    @FindBy(linkText = "Home")
+    public WebElement homeButonu;
+
+
 }
 
 
