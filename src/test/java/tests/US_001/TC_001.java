@@ -3,7 +3,7 @@ package tests.US_001;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.ConcortHotelPage;
-import utilitis.Driver;
+import utilities.Driver;
 
 public class TC_001 {
 
