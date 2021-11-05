@@ -7,7 +7,7 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 import pages.ConcortHotelPage;
-import utilitis.Driver;
+import utilities.Driver;
 
 public class TC_002 {
     //Navbardaki yönlendirmelere tıklanabilmeli

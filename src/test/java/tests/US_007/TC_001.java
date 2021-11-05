@@ -4,13 +4,9 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import org.testng.asserts.SoftAssert;
 import pages.CH_HotelRoomsPage;
-import pages.ConcortHotelPage;
-import utilitis.ConfigReader;
-import utilitis.Driver;
-
-import javax.swing.text.html.parser.DTD;
+import utilities.ConfigReader;
+import utilities.Driver;
 
 public class TC_001 {
     //1)Hotel rooms sayfasinin acik oldugunu doğrula
