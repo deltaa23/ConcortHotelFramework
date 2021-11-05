@@ -9,7 +9,6 @@ import org.testng.asserts.SoftAssert;
 import pages.ConcortHotelPage;
 import utilities.Driver;
 
-
 public class TC_002 {
     //Navbardaki yönlendirmelere tıklanabilmeli
     //1- https://qa-environment.concorthotel.com/ linkini arama çubuğuna yaz

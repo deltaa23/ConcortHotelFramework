@@ -1,0 +1,8 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+<suite name="Concort Hotel">
+    <test name="US_03">
+        <classes>
+            <class name="tests.US_003.TC_001"></class>
+        </classes>
+    </test>
+</suite>
