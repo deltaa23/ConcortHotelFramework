@@ -19,7 +19,6 @@ public class TestBaseReport {
     protected static ExtentTest extentTest;
     protected static ExtentHtmlReporter extentHtmlReporter;
 
-    LoginPage loginPage = new LoginPage();
 
     @BeforeTest(alwaysRun = true)
     public void setUpTest() {//This is how to set up Extent report. We will create and use this one in out test classes
@@ -35,18 +34,6 @@ public class TestBaseReport {
         extentReports.setSystemInfo("Automation Engineer", "Zeynep Bolat");
         extentHtmlReporter.config().setDocumentTitle("Concort Hotel Reports");
         extentHtmlReporter.config().setReportName("Concort Hotel Automation Reports");
-    }
-    @BeforeMethod(alwaysRun = true)
-    public void setupMethod() {
-        driver = Driver.getDriver();
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-        driver.manage().window().maximize();
-        driver.get(ConfigReader.getProperty("url"));
-        ReusableMethods.waitFor(2);
-        loginPage.ilkLoginLinki.click();
-        loginPage.usernameKutusu.sendKeys(ConfigReader.getProperty("username"));
-        loginPage.passwordKutusu.sendKeys(ConfigReader.getProperty("password"));
-        loginPage.loginButonu.click();
     }
 
     @AfterMethod(alwaysRun = true)//In AfterMethod, we are getting the screenshots and attaching the report when test fails

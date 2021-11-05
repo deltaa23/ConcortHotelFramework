@@ -18,6 +18,8 @@ public class TC_002 extends TestBaseReport {
     Faker faker = new Faker();
 
     public void setUp(){
+        ReusableMethods.setup();
+        ReusableMethods.waitFor(2);
         page.hotelManagementLinki.click();
         page.roomReservationButton.click();
 
