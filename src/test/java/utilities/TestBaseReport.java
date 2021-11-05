@@ -36,18 +36,6 @@ public class TestBaseReport {
         extentHtmlReporter.config().setDocumentTitle("Concort Hotel Reports");
         extentHtmlReporter.config().setReportName("Concort Hotel Automation Reports");
     }
-    @BeforeMethod(alwaysRun = true)
-    public void setupMethod() {
-        driver = Driver.getDriver();
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-        driver.manage().window().maximize();
-        driver.get(ConfigReader.getProperty("url"));
-        ReusableMethods.waitFor(2);
-        loginPage.ilkLoginLinki.click();
-        loginPage.usernameKutusu.sendKeys(ConfigReader.getProperty("username"));
-        loginPage.passwordKutusu.sendKeys(ConfigReader.getProperty("password"));
-        loginPage.loginButonu.click();
-    }
 
     @AfterMethod(alwaysRun = true)//In AfterMethod, we are getting the screenshots and attaching the report when test fails
     public void tearDownMethod(ITestResult result) throws IOException {
