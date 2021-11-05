@@ -1,8 +1,14 @@
 package tests.US_008;
 
-public class TC_001 {
-//
-    //
-    //
+import org.testng.annotations.Test;
+import utilities.TestBaseReport;
+
+public class TC_001 extends TestBaseReport {
+@Test
+    public void test(){
+
+}
+
+
 
 }

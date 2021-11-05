@@ -2,12 +2,12 @@ package tests.US_001;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import pages.ConcortHotelPage;
+import pages.US01_page;
 import utilities.Driver;
 
 public class TC_001 {
 
-    ConcortHotelPage concortHotelPage = new ConcortHotelPage();
+    US01_page concortHotelPage = new US01_page();
 
     @Test
     public void girisTesti(){

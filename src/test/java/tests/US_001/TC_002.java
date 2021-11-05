@@ -3,10 +3,8 @@ package tests.US_001;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
-import org.testng.annotations.AfterMethod;
 import org.testng.annotations.Test;
-import org.testng.asserts.SoftAssert;
-import pages.ConcortHotelPage;
+import pages.US01_page;
 import utilities.Driver;
 
 public class TC_002 {
@@ -20,7 +18,7 @@ public class TC_002 {
     //7- contact butonunu kontrol et
     //8- login butonunu kontrol et
 
-    ConcortHotelPage concortHotelPage = new ConcortHotelPage();
+    US01_page concortHotelPage = new US01_page();
     Actions actions = new Actions(Driver.getDriver());
     @Test
     public void test01_home(){

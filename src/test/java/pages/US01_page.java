@@ -6,16 +6,16 @@ import org.openqa.selenium.support.PageFactory;
 import utilities.ConfigReader;
 import utilities.Driver;
 
-public class ConcortHotelPage {
+public class US01_page {
 
-   public ConcortHotelPage(){
+   public US01_page(){
        PageFactory.initElements(Driver.getDriver(),this);
     }
 
 
     public void anaSayfa(){
 
-       Driver.getDriver().get(ConfigReader.getProperty("url"));
+      Driver.getDriver().get(ConfigReader.getProperty("url"));
 
     }
 
