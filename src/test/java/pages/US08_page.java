@@ -76,9 +76,15 @@ public class US08_page {
     public WebElement isPaid;
 
     @FindBy(id = "btnSubmit")
-    public WebElement btnSubmit;
+    public WebElement saveButton;
 
     @FindBy(xpath = "//*[text()='RoomReservation was inserted successfully']")
     public WebElement successMessage;
+
+    @FindBy(xpath = "//button[@data-bb-handler='ok']")
+    public WebElement okButton;
+
+    @FindBy(xpath = "//label[@class='error']")
+    public List<WebElement> errorTexts;
 
 }
