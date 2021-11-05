@@ -19,7 +19,6 @@ public class TestBaseReport {
     protected static ExtentTest extentTest;
     protected static ExtentHtmlReporter extentHtmlReporter;
 
-    LoginPage loginPage = new LoginPage();
 
     @BeforeTest(alwaysRun = true)
     public void setUpTest() {//This is how to set up Extent report. We will create and use this one in out test classes
