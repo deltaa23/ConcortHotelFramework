@@ -85,7 +85,7 @@ public class TC_002 extends TestBaseReport {
         page.isPaid.click();
 
         extentTest.info("Save butonunu tiklandi");
-        page.btnSubmit.click();
+        page.saveButton.click();
 
         extentTest.info("Room Reservation was inserted successfully yazisinin gorundugunu dogrulandi");
         ReusableMethods.waitFor(2);
@@ -93,6 +93,7 @@ public class TC_002 extends TestBaseReport {
         String actualMessage = page.successMessage.getText();
         softAssert.assertEquals(actualMessage,expectedMessage,"Succesfull message is not as expected");
 
+        page.okButton.click();
         softAssert.assertAll();
         extentTest.pass("PASS");
     }
