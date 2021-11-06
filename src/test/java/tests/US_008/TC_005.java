@@ -12,12 +12,7 @@ import utilities.ReusableMethods;
 import utilities.TestBaseReport;
 
 public class TC_005 extends TestBaseReport {
-    //1.Date Start kismina local date gir
-    //2.Date End kismina locale date gir
-    //3.Error mesajinin gorunur oldugunu dogrula
-    //4.Date Start kismina yarinin tarihini gir
-    //5.Date End kismina bugunun tarihini gir
-    //6.Error mesajinin goruntulendigini dogrula
+
     US08_page page = new US08_page();
     Actions actions= new Actions(Driver.getDriver());
     SoftAssert softAssert = new SoftAssert();
@@ -70,7 +65,8 @@ public class TC_005 extends TestBaseReport {
 
         extentTest.info("ContactPhone kismina telno girdi");
         ReusableMethods.waitFor(2);
-        page.contactPhone.sendKeys(faker.phoneNumber().cellPhone());
+
+        page.contactPhone.sendKeys(ConfigReader.getProperty("validPhoneNum"));
 
         extentTest.info("ContactEmail kismina emaild girdi");
         page.contactEmail.sendKeys(faker.internet().emailAddress());
