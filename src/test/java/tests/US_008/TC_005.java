@@ -11,27 +11,19 @@ import utilities.Driver;
 import utilities.ReusableMethods;
 import utilities.TestBaseReport;
 
-public class TC_002 extends TestBaseReport {
+public class TC_005 extends TestBaseReport {
+
     US08_page page = new US08_page();
     Actions actions= new Actions(Driver.getDriver());
     SoftAssert softAssert = new SoftAssert();
     Faker faker = new Faker();
-
-    public void setUp(){
-        ReusableMethods.setup();
-        ReusableMethods.waitFor(2);
-        page.hotelManagementLinki.click();
-        page.roomReservationButton.click();
-
-        page.addRoomReservation.click();
-
-    }
+    TC_002 hotelManagement = new TC_002();
     @Test
-    public void positiveTest(){
+    public void dateTest(){
 
-        extentTest=extentReports.createTest("Room Reservation Testing","Positive Testi");
+        extentTest=extentReports.createTest("Room Reservation Testing","Date Testi");
         extentTest.info("Kullanici Room Reservation sayfasinda");
-        setUp();
+        hotelManagement.setUp();
 
         extentTest.info("ID-User-Select User dropDown menusunden secim yapti");
         Select select = new Select(page.selectUser);
@@ -60,7 +52,7 @@ public class TC_002 extends TestBaseReport {
         if (page.listOfDays.size()<=1){
             page.next.click();
         }
-        page.listOfDays.get(2).click();
+        page.listOfDays.get(0).click();
 
         extentTest.info("AdultAmount kismina number girdi");
         page.adultAmount.sendKeys("2");
@@ -72,6 +64,7 @@ public class TC_002 extends TestBaseReport {
         page.contactNameSurname.sendKeys(faker.name().fullName());
 
         extentTest.info("ContactPhone kismina telno girdi");
+        ReusableMethods.waitFor(2);
 
         page.contactPhone.sendKeys(ConfigReader.getProperty("validPhoneNum"));
 
@@ -90,14 +83,46 @@ public class TC_002 extends TestBaseReport {
         extentTest.info("Save butonunu tiklandi");
         page.saveButton.click();
 
-        extentTest.info("Room Reservation was inserted successfully yazisinin gorundugunu dogrulandi");
+        extentTest.info("Room Reservation was inserted successfully yazisinin gorunmedigini dogrulandi");
         ReusableMethods.waitFor(2);
-        String expectedMessage = "Room Reservation was inserted successfully";
-        String actualMessage = page.successMessage.getText();
-        softAssert.assertEquals(actualMessage,expectedMessage,"Succesfull message is not as expected");
+        softAssert.assertFalse(page.successMessage.isDisplayed(),"Ayni gunde yapilan rezervasyon gecerli degildir");
 
-        page.okButton.click();
+        if (page.successMessage.isDisplayed()){
+            page.okButton.click();
+        }
+
+        extentTest.info("DateStart kismindan secim yapti");
+        actions.moveToElement(page.dateStart).perform();
+        ReusableMethods.waitFor(2);
+        page.listOfDateButtons.get(1).click();
+        ReusableMethods.waitFor(2);
+        if (page.listOfDays.size()==0){
+            page.next.click();
+        }
+        page.listOfDays.get(1).click();
+
+        extentTest.info("DateEnd kismindan secim yapti");
+        page.listOfDateButtons.get(2).click();
+        ReusableMethods.waitFor(2);
+        if (page.listOfDays.size()<=1){
+            page.next.click();
+        }
+        page.listOfDays.get(0).click();
+
+        extentTest.info("Save butonunu tiklandi");
+        page.saveButton.click();
+
+        extentTest.info("Room Reservation was inserted successfully yazisinin gorunmedigini dogrulandi");
+        ReusableMethods.waitFor(2);
+        softAssert.assertFalse(page.successMessage.isDisplayed(),
+                "End date in start date den once oldugu  rezervasyon gecerli degildir");
+
+        if (page.successMessage.isDisplayed()){
+            page.okButton.click();
+        }
+
         softAssert.assertAll();
         extentTest.pass("PASS");
     }
 }
+

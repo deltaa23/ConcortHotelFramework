@@ -11,27 +11,18 @@ import utilities.Driver;
 import utilities.ReusableMethods;
 import utilities.TestBaseReport;
 
-public class TC_002 extends TestBaseReport {
+public class TC_006 extends TestBaseReport {
     US08_page page = new US08_page();
     Actions actions= new Actions(Driver.getDriver());
     SoftAssert softAssert = new SoftAssert();
     Faker faker = new Faker();
-
-    public void setUp(){
-        ReusableMethods.setup();
-        ReusableMethods.waitFor(2);
-        page.hotelManagementLinki.click();
-        page.roomReservationButton.click();
-
-        page.addRoomReservation.click();
-
-    }
+    TC_002 hotelManagement = new TC_002();
     @Test
-    public void positiveTest(){
+    public void priceAmountTest(){
 
-        extentTest=extentReports.createTest("Room Reservation Testing","Positive Testi");
+        extentTest=extentReports.createTest("Room Reservation Testing","Price and Amount Testi");
         extentTest.info("Kullanici Room Reservation sayfasinda");
-        setUp();
+        hotelManagement.setUp();
 
         extentTest.info("ID-User-Select User dropDown menusunden secim yapti");
         Select select = new Select(page.selectUser);
@@ -41,9 +32,9 @@ public class TC_002 extends TestBaseReport {
         select= new Select(page.selectHotelRoom);
         select.selectByIndex(1);
 
-        extentTest.info("Price kismina number girdi");
+        extentTest.info("Price kismina invalid veri girdi");
         ReusableMethods.waitFor(2);
-        page.price.sendKeys(ConfigReader.getProperty("price"));
+        page.price.sendKeys("-100");
 
         extentTest.info("DateStart kismindan secim yapti");
 
@@ -60,19 +51,19 @@ public class TC_002 extends TestBaseReport {
         if (page.listOfDays.size()<=1){
             page.next.click();
         }
-        page.listOfDays.get(2).click();
+        page.listOfDays.get(1).click();
 
         extentTest.info("AdultAmount kismina number girdi");
-        page.adultAmount.sendKeys("2");
+        page.adultAmount.sendKeys("-1");
 
         extentTest.info("ChildrenAmount kismina number girdi");
-        page.childrenAmount.sendKeys("1");
+        page.childrenAmount.sendKeys("-1");
 
         extentTest.info("ContactNameSurname kismina bilgi girdi");
         page.contactNameSurname.sendKeys(faker.name().fullName());
 
         extentTest.info("ContactPhone kismina telno girdi");
-
+        ReusableMethods.waitFor(2);
         page.contactPhone.sendKeys(ConfigReader.getProperty("validPhoneNum"));
 
         extentTest.info("ContactEmail kismina emaild girdi");
@@ -90,13 +81,32 @@ public class TC_002 extends TestBaseReport {
         extentTest.info("Save butonunu tiklandi");
         page.saveButton.click();
 
-        extentTest.info("Room Reservation was inserted successfully yazisinin gorundugunu dogrulandi");
+        extentTest.info("Room Reservation was inserted successfully yazisinin gorunmedigini dogrulandi");
         ReusableMethods.waitFor(2);
-        String expectedMessage = "Room Reservation was inserted successfully";
-        String actualMessage = page.successMessage.getText();
-        softAssert.assertEquals(actualMessage,expectedMessage,"Succesfull message is not as expected");
+        softAssert.assertFalse(page.successMessage.isDisplayed(),"Price ve Amaount sayilari negative degil");
 
-        page.okButton.click();
+        if (page.successMessage.isDisplayed()){
+            page.okButton.click();
+        }
+
+        actions.moveToElement(page.price).perform();
+        page.price.clear();
+        page.price.sendKeys("a");
+
+        page.adultAmount.clear();
+        page.adultAmount.sendKeys("Z");
+
+        page.childrenAmount.clear();
+        page.childrenAmount.sendKeys("x");
+
+        extentTest.info("Save butonunu tiklandi");
+        page.saveButton.click();
+
+        extentTest.info("Fill All Fields Please yazisinin gorundugu dogrulandi");
+        ReusableMethods.waitFor(2);
+        softAssert.assertTrue(page.fillallfieldstext.isDisplayed());
+
+
         softAssert.assertAll();
         extentTest.pass("PASS");
     }
