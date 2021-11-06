@@ -11,15 +11,15 @@ import utilities.Driver;
 import utilities.ReusableMethods;
 import utilities.TestBaseReport;
 
-public class TC_007 extends TestBaseReport {
+public class TC_008 extends TestBaseReport {
     US08_page page = new US08_page();
     Actions actions= new Actions(Driver.getDriver());
     SoftAssert softAssert = new SoftAssert();
     Faker faker = new Faker();
     TC_002 hotelManagement = new TC_002();
     @Test
-    public void mobileNumberTest() {
-        extentTest = extentReports.createTest("Room Reservation Testing", "Mobile Number Testing");
+    public void emailTest() {
+        extentTest = extentReports.createTest("Room Reservation Testing", "Email Testing");
         extentTest.info("Kullanici Room Reservation sayfasinda");
         hotelManagement.setUp();
 
@@ -61,11 +61,11 @@ public class TC_007 extends TestBaseReport {
         extentTest.info("ContactNameSurname kismina bilgi girdi");
         page.contactNameSurname.sendKeys(faker.name().fullName());
 
-        extentTest.info("ContactPhone kismina invalid bir telno girdi");
-        page.contactPhone.sendKeys(ConfigReader.getProperty("invalidPhoneNum1"));
+        extentTest.info("ContactPhone kismina telno girdi");
+        page.contactPhone.sendKeys(ConfigReader.getProperty("validPhoneNum"));
 
-        extentTest.info("ContactEmail kismina emaild girdi");
-        page.contactEmail.sendKeys(faker.internet().emailAddress());
+        extentTest.info("Contact Email kismina invalid bir email girdi");
+        page.contactEmail.sendKeys(ConfigReader.getProperty("invalidEmail1"));
 
         extentTest.info("Notes kismina bilgi girdi");
         page.notes.sendKeys(faker.lorem().paragraph());
@@ -78,16 +78,22 @@ public class TC_007 extends TestBaseReport {
 
         verify();
 
-        extentTest.info("ContactPhone kismina invalid bir telno girdi");
-        actions.moveToElement(page.contactPhone).perform();
-        page.contactPhone.clear();
-        page.contactPhone.sendKeys(ConfigReader.getProperty("invalidPhoneNum2"));
+        extentTest.info("Contact Email kismina invalid bir email girdi");
+        actions.moveToElement(page.contactEmail).perform();
+        page.contactEmail.clear();
+        page.contactEmail.sendKeys(ConfigReader.getProperty("invalidEmail2"));
+
+        verify();
+
+        extentTest.info("Contact Email kismina invalid bir email girdi");
+        actions.moveToElement(page.contactEmail).perform();
+        page.contactEmail.clear();
+        page.contactEmail.sendKeys(ConfigReader.getProperty("invalidEmail3"));
 
         verify();
 
         softAssert.assertAll();
         extentTest.pass("PASS");
-
     }
 
     private void verify() {
@@ -95,10 +101,10 @@ public class TC_007 extends TestBaseReport {
         actions.moveToElement(page.saveButton).perform();
         page.saveButton.click();
 
-        extentTest.info("Contact Phone error mesajinin gorundugunu dogrular");
-        String expectedtext="Contact Phone";
+        extentTest.info("Contact Email error mesajinin gorundugunu dogrular");
+        String expectedtext="Please provide correct email address";
         String actualtext=page.errorTexts.get(0).getText();
-        softAssert.assertEquals(actualtext,expectedtext,"Contact Phone error message is not displayed");
+        softAssert.assertEquals(actualtext,expectedtext,"Contact Email error message is not displayed");
 
         extentTest.info("Kullanici eror mesaji renginin kirmizi oldugunu dogruladi");
         String color = "rgba(243, 86, 93, 1)";
