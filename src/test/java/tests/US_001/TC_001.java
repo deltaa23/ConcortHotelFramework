@@ -4,8 +4,9 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.US01_page;
 import utilities.Driver;
+import utilities.TestBaseReport;
 
-public class TC_001 {
+public class TC_001 extends TestBaseReport {
 
     US01_page concortHotelPage = new US01_page();
 

@@ -11,7 +11,7 @@ import java.util.concurrent.TimeUnit;
 
 public class Driver {
   private Driver(){}
-   private static WebDriver driver;
+   private static WebDriver driver; // neden private yazdik, olmasada calisiyor?
    public static WebDriver getDriver(){
       if(driver==null){
          switch (ConfigReader.getProperty("browser")){
