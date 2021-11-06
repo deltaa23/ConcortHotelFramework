@@ -72,7 +72,8 @@ public class TC_002 extends TestBaseReport {
         page.contactNameSurname.sendKeys(faker.name().fullName());
 
         extentTest.info("ContactPhone kismina telno girdi");
-        page.contactPhone.sendKeys(faker.phoneNumber().cellPhone());
+
+        page.contactPhone.sendKeys(ConfigReader.getProperty("validPhoneNum"));
 
         extentTest.info("ContactEmail kismina emaild girdi");
         page.contactEmail.sendKeys(faker.internet().emailAddress());

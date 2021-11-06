@@ -87,4 +87,7 @@ public class US08_page {
     @FindBy(xpath = "//label[@class='error']")
     public List<WebElement> errorTexts;
 
+    @FindBy(xpath = "//div[text()='Fill All Fields Please']")
+    public WebElement fillallfieldstext;
+
 }
