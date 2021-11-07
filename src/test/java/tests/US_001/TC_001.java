@@ -8,11 +8,11 @@ import utilities.TestBaseReport;
 
 public class TC_001 extends TestBaseReport {
 
-    US01_page concortHotelPage = new US01_page();
+    US01_page us01_page = new US01_page();
 
     @Test
     public void girisTesti(){
-        concortHotelPage.anaSayfa();
+        us01_page.anaSayfa();
         String actualUrl = Driver.getDriver().getCurrentUrl();
         String expectedUrl = "https://qa-environment.concorthotel.com/";
         Assert.assertEquals(actualUrl,expectedUrl,"url ler uyusmuyor");
