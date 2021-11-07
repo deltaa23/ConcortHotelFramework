@@ -5,6 +5,7 @@ import org.openqa.selenium.support.ui.Select;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 import pages.US08_page;
+import utilities.ConfigReader;
 import utilities.ReusableMethods;
 import utilities.TestBaseReport;
 
@@ -47,7 +48,8 @@ public class TC_003 extends TestBaseReport {
         page.childrenAmount.sendKeys("3");
 
         extentTest.info("ContactPhone kismina telno girdi");
-        page.contactPhone.sendKeys(faker.phoneNumber().cellPhone());
+
+        page.contactPhone.sendKeys(ConfigReader.getProperty("validPhoneNum"));
 
         extentTest.info("ContactEmail kismina emaild girdi");
         page.contactEmail.sendKeys(faker.internet().emailAddress());

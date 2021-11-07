@@ -6,8 +6,9 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.US01_page;
 import utilities.Driver;
+import utilities.TestBaseReport;
 
-public class TC_002 {
+public class TC_002 extends TestBaseReport {
     //Navbardaki yönlendirmelere tıklanabilmeli
     //1- https://qa-environment.concorthotel.com/ linkini arama çubuğuna yaz
     //2- home butonunu kontrol et
