@@ -7,10 +7,10 @@ import org.openqa.selenium.support.PageFactory;
 import utilities.ConfigReader;
 import utilities.Driver;
 
-public class CH_HotelRoomsPage {
+public class US07_page {
 
     WebDriver driver;
-    public CH_HotelRoomsPage(){
+    public US07_page(){
         this.driver=driver;
         PageFactory.initElements(Driver.getDriver(), this);
 
@@ -62,13 +62,13 @@ public class CH_HotelRoomsPage {
     public void loginCH() throws InterruptedException {
 
         Driver.getDriver().get(ConfigReader.getProperty("url"));
-        CH_HotelRoomsPage ch_hotelRoomsPage=new CH_HotelRoomsPage();
+        US07_page uS07page =new US07_page();
         Thread.sleep(3000);
-        ch_hotelRoomsPage.ilkLoginLinki.click();
+        uS07page.ilkLoginLinki.click();
         Thread.sleep(200);
-        ch_hotelRoomsPage.usernameKutusu.sendKeys(ConfigReader.getProperty("username"));
-        ch_hotelRoomsPage.passwordKutusu.sendKeys(ConfigReader.getProperty("password"));
-        ch_hotelRoomsPage.loginButonu.click();
+        uS07page.usernameKutusu.sendKeys(ConfigReader.getProperty("username"));
+        uS07page.passwordKutusu.sendKeys(ConfigReader.getProperty("password"));
+        uS07page.loginButonu.click();
     }
 
 

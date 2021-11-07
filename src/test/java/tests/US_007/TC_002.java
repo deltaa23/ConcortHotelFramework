@@ -8,7 +8,7 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import pages.CH_HotelRoomsPage;
+import pages.US07_page;
 import utilities.ConfigReader;
 import utilities.Driver;
 
@@ -26,24 +26,24 @@ public class TC_002 {
 
     @Test
             public void test() throws InterruptedException {
-        CH_HotelRoomsPage ch_hotelRoomsPage = new CH_HotelRoomsPage();
-        ch_hotelRoomsPage.loginCH();
+        US07_page uS07page = new US07_page();
+        uS07page.loginCH();
         Thread.sleep(2000);
         Driver.getDriver().get(ConfigReader.getProperty("hrpage"));
         Thread.sleep(3000);
         JavascriptExecutor jse=(JavascriptExecutor) Driver.getDriver();
-        WebElement flag=ch_hotelRoomsPage.detailsButonu;
+        WebElement flag= uS07page.detailsButonu;
 
         jse.executeScript("arguments[0].scrollIntoView();",flag);
         Thread.sleep(2000);
 
-        ch_hotelRoomsPage.detailsButonu.click();
+        uS07page.detailsButonu.click();
 
 
         Faker faker=new Faker();
         Actions actions=new Actions(Driver.getDriver());
 
-        Select select=new Select(ch_hotelRoomsPage.hotelDropDown);
+        Select select=new Select(uS07page.hotelDropDown);
         select.selectByIndex(8);
 
         actions.sendKeys(Keys.TAB)
@@ -67,7 +67,7 @@ public class TC_002 {
                 .perform();
 
 
-        Assert.assertTrue(ch_hotelRoomsPage.saveBasariliHtmlError.isEnabled());
+        Assert.assertTrue(uS07page.saveBasariliHtmlError.isEnabled());
 
 
 

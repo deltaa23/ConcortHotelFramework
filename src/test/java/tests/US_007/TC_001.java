@@ -4,7 +4,7 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import pages.CH_HotelRoomsPage;
+import pages.US07_page;
 import utilities.ConfigReader;
 import utilities.Driver;
 
@@ -15,19 +15,19 @@ public class TC_001 {
 
     @Test
     public void test() throws InterruptedException {
-        CH_HotelRoomsPage ch_hotelRoomsPage=new CH_HotelRoomsPage();
-        ch_hotelRoomsPage.loginCH();
+        US07_page uS07page =new US07_page();
+        uS07page.loginCH();
         Driver.getDriver().get(ConfigReader.getProperty("hrpage"));
 
 
         JavascriptExecutor jse=(JavascriptExecutor) Driver.getDriver();
-        WebElement flag=ch_hotelRoomsPage.detailsButonu;
+        WebElement flag= uS07page.detailsButonu;
         jse.executeScript("arguments[0].scrollIntoView();",flag);
         Thread.sleep(2000);
 
-        ch_hotelRoomsPage.detailsButonu.click();
+        uS07page.detailsButonu.click();
 
-        Assert.assertEquals(ch_hotelRoomsPage.editHotelRoomYazisi.getText(),"Edit Hotelroom");
+        Assert.assertEquals(uS07page.editHotelRoomYazisi.getText(),"Edit Hotelroom");
         Driver.getDriver().close();
 
 
