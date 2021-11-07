@@ -22,6 +22,15 @@ public class US01_page {
     @FindBy(linkText = "Home")
     public WebElement homeButonu;
 
+   @FindBy(xpath = "//span[@class='icon-twitter']")
+    public WebElement twitterButonu;
+
+   @FindBy(xpath = "(//span[@class='icon-facebook'])[2]")
+    public WebElement facebookButonu;
+
+   @FindBy(xpath = "(//span[@class='icon-instagram'])[2]")
+    public WebElement instagramButonu;
+
 
 }
 

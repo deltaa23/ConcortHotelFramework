@@ -19,18 +19,18 @@ public class TC_002 extends TestBaseReport {
     //7- contact butonunu kontrol et
     //8- login butonunu kontrol et
 
-    US01_page concortHotelPage = new US01_page();
+    US01_page us01_page = new US01_page();
     Actions actions = new Actions(Driver.getDriver());
     @Test
     public void test01_home(){
-        concortHotelPage.anaSayfa();
-        concortHotelPage.homeButonu.click();
+        us01_page.anaSayfa();
+        us01_page.homeButonu.click();
         String baslik = Driver.getDriver().getTitle();
         Assert.assertTrue(baslik.contains("Home"),"home butonu calismiyor");
     }
     @Test
     public void test02_rooms(){
-        concortHotelPage.anaSayfa();
+        us01_page.anaSayfa();
         actions.sendKeys(Keys.TAB).sendKeys(Keys.TAB).sendKeys(Keys.TAB).
                 sendKeys(Keys.ENTER).perform();
         String roomsUrl = Driver.getDriver().getCurrentUrl();
@@ -38,7 +38,7 @@ public class TC_002 extends TestBaseReport {
     }
     @Test
     public void test03_restaurant(){
-        concortHotelPage.anaSayfa();
+        us01_page.anaSayfa();
         actions.sendKeys(Keys.TAB).sendKeys(Keys.TAB).sendKeys(Keys.TAB).
                 sendKeys(Keys.TAB).sendKeys(Keys.ENTER).perform();
         String restaurantUrl = Driver.getDriver().getCurrentUrl();
@@ -46,7 +46,7 @@ public class TC_002 extends TestBaseReport {
     }
     @Test
     public void test04_about(){
-        concortHotelPage.anaSayfa();
+        us01_page.anaSayfa();
         actions.sendKeys(Keys.TAB).sendKeys(Keys.TAB).sendKeys(Keys.TAB).
                 sendKeys(Keys.TAB).sendKeys(Keys.TAB).sendKeys(Keys.ENTER).perform();
         String aboutUrl = Driver.getDriver().getCurrentUrl();
@@ -54,7 +54,7 @@ public class TC_002 extends TestBaseReport {
     }
     @Test
     public void test05_blog(){
-        concortHotelPage.anaSayfa();
+        us01_page.anaSayfa();
         actions.sendKeys(Keys.TAB).sendKeys(Keys.TAB).sendKeys(Keys.TAB).
                 sendKeys(Keys.TAB).sendKeys(Keys.TAB).sendKeys(Keys.TAB).
                 sendKeys(Keys.ENTER).perform();
@@ -63,7 +63,7 @@ public class TC_002 extends TestBaseReport {
     }
     @Test
     public void test06_contact(){
-        concortHotelPage.anaSayfa();
+        us01_page.anaSayfa();
         actions.sendKeys(Keys.TAB).sendKeys(Keys.TAB).sendKeys(Keys.TAB).
                 sendKeys(Keys.TAB).sendKeys(Keys.TAB).sendKeys(Keys.TAB).
                 sendKeys(Keys.TAB).sendKeys(Keys.ENTER).perform();
@@ -72,7 +72,7 @@ public class TC_002 extends TestBaseReport {
     }
     @Test
     public void test07_login(){
-        concortHotelPage.anaSayfa();
+        us01_page.anaSayfa();
         actions.sendKeys(Keys.TAB).sendKeys(Keys.TAB).sendKeys(Keys.TAB).
                 sendKeys(Keys.TAB).sendKeys(Keys.TAB).sendKeys(Keys.TAB).
                 sendKeys(Keys.TAB).sendKeys(Keys.TAB).sendKeys(Keys.ENTER).perform();
