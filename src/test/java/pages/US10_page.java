@@ -31,4 +31,55 @@ public class US10_page {
 
     @FindBy(xpath = "(//a[@class='btn-custom'])[1]")
     public WebElement ilkRoomBookNow;
+
+
+    @FindBy(id = "checkin_date")
+    public WebElement checkInDateTextbox;
+
+    @FindBy(id = "checkout_date")
+    public WebElement checkOutDateTextbox;
+
+    @FindBy(id = "AdultCount")
+    public WebElement adultCountTextBox;
+
+    @FindBy(id = "ChildrenCount")
+    public WebElement childrenCountTextBox;
+
+    @FindBy(id = "NameOnCreditCard")
+    public WebElement nameOnCreditCardTextbox;
+
+    @FindBy(id = "CreditCardNumber")
+    public WebElement creditCardNumberTextbox;
+
+    @FindBy(id = "CreditCardExpirationYear")
+    public WebElement creditCardExpirationYearTextbox;
+
+    @FindBy(id = "CreditCardExpirationMonth")
+    public WebElement ceditCardExpirationMonthTextbox;
+
+    @FindBy(id = "CVV")
+    public WebElement cvvTextbox;
+
+    @FindBy(id = "Message")
+    public WebElement messageTextbox;
+
+    @FindBy(xpath = "//input[@value='Book this room']")
+    public WebElement bookThisRoomButton;
+
+    @FindBy(className = "bootbox-body")
+    public WebElement reservationsuccessfullyText;
+
+    @FindBy(xpath = "//button[@data-bb-handler='ok']")
+    public WebElement okSuccessfullyButton;
+
+
+
+
+
+
+
+
+
+
+
 }
