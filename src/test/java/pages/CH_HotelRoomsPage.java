@@ -1,13 +1,11 @@
 package pages;
 
-import org.openqa.selenium.JavascriptException;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import utilitis.ConfigReader;
-import utilitis.Driver;
+import utilities.ConfigReader;
+import utilities.Driver;
 
 public class CH_HotelRoomsPage {
 
@@ -32,7 +30,7 @@ public class CH_HotelRoomsPage {
     @FindBy (xpath = "//*[text()='List Of Hotelrooms']")
     public WebElement listofHotelRoomsYazisi;
 
-    @FindBy (xpath = "//*[@class='btn btn-xs default']")
+    @FindBy (xpath = "(//*[@class='btn btn-xs default'])[7]")
     public WebElement detailsButonu;
 
     @FindBy (xpath = "(//div[@class='caption'])[1]")
