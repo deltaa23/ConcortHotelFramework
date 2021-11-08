@@ -109,5 +109,6 @@ public class TC_006 extends TestBaseReport {
 
         softAssert.assertAll();
         extentTest.pass("PASS");
+        // deneme
     }
 }
