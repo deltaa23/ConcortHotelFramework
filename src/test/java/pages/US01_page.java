@@ -31,6 +31,9 @@ public class US01_page {
    @FindBy(xpath = "(//span[@class='icon-instagram'])[2]")
     public WebElement instagramButonu;
 
+   @FindBy(xpath = "(//span[@class='price mr-2'])[1]")
+    public WebElement odaFiyati;
+
 
 }
 

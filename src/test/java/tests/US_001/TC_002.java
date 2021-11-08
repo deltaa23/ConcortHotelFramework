@@ -3,6 +3,8 @@ package tests.US_001;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import pages.US01_page;
 import utilities.Driver;
@@ -21,16 +23,20 @@ public class TC_002 extends TestBaseReport {
 
     US01_page us01_page = new US01_page();
     Actions actions = new Actions(Driver.getDriver());
+
+    @BeforeMethod
+    public void setup(){
+        us01_page.anaSayfa();
+    }
+
     @Test
     public void test01_home(){
-        us01_page.anaSayfa();
         us01_page.homeButonu.click();
         String baslik = Driver.getDriver().getTitle();
         Assert.assertTrue(baslik.contains("Home"),"home butonu calismiyor");
     }
     @Test
     public void test02_rooms(){
-        us01_page.anaSayfa();
         actions.sendKeys(Keys.TAB).sendKeys(Keys.TAB).sendKeys(Keys.TAB).
                 sendKeys(Keys.ENTER).perform();
         String roomsUrl = Driver.getDriver().getCurrentUrl();
@@ -38,7 +44,6 @@ public class TC_002 extends TestBaseReport {
     }
     @Test
     public void test03_restaurant(){
-        us01_page.anaSayfa();
         actions.sendKeys(Keys.TAB).sendKeys(Keys.TAB).sendKeys(Keys.TAB).
                 sendKeys(Keys.TAB).sendKeys(Keys.ENTER).perform();
         String restaurantUrl = Driver.getDriver().getCurrentUrl();
@@ -46,7 +51,6 @@ public class TC_002 extends TestBaseReport {
     }
     @Test
     public void test04_about(){
-        us01_page.anaSayfa();
         actions.sendKeys(Keys.TAB).sendKeys(Keys.TAB).sendKeys(Keys.TAB).
                 sendKeys(Keys.TAB).sendKeys(Keys.TAB).sendKeys(Keys.ENTER).perform();
         String aboutUrl = Driver.getDriver().getCurrentUrl();
@@ -54,7 +58,6 @@ public class TC_002 extends TestBaseReport {
     }
     @Test
     public void test05_blog(){
-        us01_page.anaSayfa();
         actions.sendKeys(Keys.TAB).sendKeys(Keys.TAB).sendKeys(Keys.TAB).
                 sendKeys(Keys.TAB).sendKeys(Keys.TAB).sendKeys(Keys.TAB).
                 sendKeys(Keys.ENTER).perform();
@@ -63,7 +66,6 @@ public class TC_002 extends TestBaseReport {
     }
     @Test
     public void test06_contact(){
-        us01_page.anaSayfa();
         actions.sendKeys(Keys.TAB).sendKeys(Keys.TAB).sendKeys(Keys.TAB).
                 sendKeys(Keys.TAB).sendKeys(Keys.TAB).sendKeys(Keys.TAB).
                 sendKeys(Keys.TAB).sendKeys(Keys.ENTER).perform();
@@ -72,13 +74,15 @@ public class TC_002 extends TestBaseReport {
     }
     @Test
     public void test07_login(){
-        us01_page.anaSayfa();
         actions.sendKeys(Keys.TAB).sendKeys(Keys.TAB).sendKeys(Keys.TAB).
                 sendKeys(Keys.TAB).sendKeys(Keys.TAB).sendKeys(Keys.TAB).
                 sendKeys(Keys.TAB).sendKeys(Keys.TAB).sendKeys(Keys.ENTER).perform();
         String loginUrl = Driver.getDriver().getCurrentUrl();
         Assert.assertTrue(loginUrl.contains("Logon"));
-
+    }
+    @AfterClass
+    public void tearDown(){
+        Driver.closeDriver();
     }
 
 }

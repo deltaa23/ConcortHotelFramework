@@ -1,6 +1,7 @@
 package tests.US_001;
 
 import org.testng.Assert;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.Test;
 import pages.US01_page;
 import utilities.Driver;
@@ -11,13 +12,16 @@ public class TC_001 extends TestBaseReport {
     US01_page us01_page = new US01_page();
 
     @Test
-    public void girisTesti(){
+    public void girisTesti() {
         us01_page.anaSayfa();
         String actualUrl = Driver.getDriver().getCurrentUrl();
         String expectedUrl = "https://qa-environment.concorthotel.com/";
-        Assert.assertEquals(actualUrl,expectedUrl,"url ler uyusmuyor");
+        Assert.assertEquals(actualUrl, expectedUrl, "url ler uyusmuyor");
         Driver.closeDriver();
     }
-    //deneme
+    @AfterClass
+    public void tearDown(){
+        Driver.closeDriver();
+    }
 
 }
