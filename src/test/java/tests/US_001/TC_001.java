@@ -2,14 +2,14 @@ package tests.US_001;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
-<<<<<<< HEAD
-import pages.ConcortHotelPage;
+
+import pages.US01_page;
 import utilities.Driver;
-=======
+
 import pages.US01_page;
 import utilities.Driver;
 import utilities.TestBaseReport;
->>>>>>> master
+
 
 public class TC_001 extends TestBaseReport {
 

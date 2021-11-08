@@ -11,6 +11,7 @@ import org.testng.annotations.Test;
 import pages.US07_page;
 import utilities.ConfigReader;
 import utilities.Driver;
+import utilities.ReusableMethods;
 
 public class TC_002 {
     //1)Hotel dropdown ile degistir
@@ -28,14 +29,14 @@ public class TC_002 {
             public void test() throws InterruptedException {
         US07_page uS07page = new US07_page();
         uS07page.loginCH();
-        Thread.sleep(2000);
+        ReusableMethods.waitFor(2);
         Driver.getDriver().get(ConfigReader.getProperty("hrpage"));
-        Thread.sleep(3000);
+        ReusableMethods.waitFor(2);
         JavascriptExecutor jse=(JavascriptExecutor) Driver.getDriver();
         WebElement flag= uS07page.detailsButonu;
 
         jse.executeScript("arguments[0].scrollIntoView();",flag);
-        Thread.sleep(2000);
+        ReusableMethods.waitFor(2);
 
         uS07page.detailsButonu.click();
 

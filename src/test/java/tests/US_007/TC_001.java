@@ -7,6 +7,7 @@ import org.testng.annotations.Test;
 import pages.US07_page;
 import utilities.ConfigReader;
 import utilities.Driver;
+import utilities.ReusableMethods;
 
 public class TC_001 {
     //1)Hotel rooms sayfasinin acik oldugunu doğrula
@@ -23,7 +24,7 @@ public class TC_001 {
         JavascriptExecutor jse=(JavascriptExecutor) Driver.getDriver();
         WebElement flag= uS07page.detailsButonu;
         jse.executeScript("arguments[0].scrollIntoView();",flag);
-        Thread.sleep(2000);
+        ReusableMethods.waitFor(2);
 
         uS07page.detailsButonu.click();
 
