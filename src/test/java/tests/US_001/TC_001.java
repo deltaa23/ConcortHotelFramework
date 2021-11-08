@@ -18,5 +18,6 @@ public class TC_001 extends TestBaseReport {
         Assert.assertEquals(actualUrl,expectedUrl,"url ler uyusmuyor");
         Driver.closeDriver();
     }
+    //deneme
 
 }
