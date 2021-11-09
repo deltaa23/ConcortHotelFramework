@@ -6,11 +6,9 @@ import pages.ConcortHPage;
 import utilities.ConfigReader;
 import utilities.Driver;
 
-
-
-public class TC_001 {
-
-//otel oluşturma pozitif test
+public class TC_002 {
+    //otel oluştturma negatif test
+    //code  girilmiyor
 
     @Test
     public void test() throws InterruptedException {
@@ -24,7 +22,7 @@ public class TC_001 {
         concortHPage.HotelListLink.click();
         concortHPage.AddHotelLink.click();
 
-        concortHPage.Code.sendKeys(ConfigReader.getProperty("code"));
+        concortHPage.Code.sendKeys(ConfigReader.getProperty("code1"));
         concortHPage.Name.sendKeys(ConfigReader.getProperty("name"));
         concortHPage.Adres.sendKeys(ConfigReader.getProperty("adres"));
         concortHPage.Phone.sendKeys(ConfigReader.getProperty("tlf"));
@@ -34,8 +32,9 @@ public class TC_001 {
 
         concortHPage.Savebutonu.click();
         Thread.sleep(3000);
-        Assert.assertTrue(concortHPage.Savebutonu.isDisplayed());
-        System.out.println("Hotel was inserted successfully");
         Driver.closeDriver();
+
     }
+
 }
+

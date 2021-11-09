@@ -21,16 +21,32 @@ public class ReusableMethods {
     public static String getScreenshot(String name) throws IOException {
         // naming the screenshot with the current date to avoid duplication
         String date = new SimpleDateFormat("yyyyMMddhhmmss").format(new Date());
+<<<<<<< HEAD
+=======
+
+>>>>>>> emrehan
         // TakesScreenshot is an interface of selenium that takes the screenshot
         TakesScreenshot ts = (TakesScreenshot) Driver.getDriver();
         File source = ts.getScreenshotAs(OutputType.FILE);
         // full path to the screenshot location
         String target = System.getProperty("user.dir") + "/test-output/Screenshots/" + name + date + ".png";
+<<<<<<< HEAD
         File finalDestination = new File(target);
         // save the screenshot to the path given
         FileUtils.copyFile(source, finalDestination);
         return target;
     }
+=======
+
+        File finalDestination = new File(target);
+        // save the screenshot to the path given
+        FileUtils.copyFile(source, finalDestination);
+
+        return target;
+    }
+
+
+>>>>>>> emrehan
     //========Switching Window=====//
     public static void switchToWindow(String targetTitle) {
         String origin = Driver.getDriver().getWindowHandle();
@@ -47,7 +63,14 @@ public class ReusableMethods {
         Actions actions = new Actions(Driver.getDriver());
         actions.moveToElement(element).perform();
     }
+<<<<<<< HEAD
     //==========Return a list of string given a list of Web Element====////
+=======
+
+    //==========Return a list of string given a list of Web Element====////
+
+
+>>>>>>> emrehan
     public static List<String> getElementsText(List<WebElement> list) {
         List<String> elemTexts = new ArrayList<>();
         for (WebElement el : list) {
@@ -57,6 +80,10 @@ public class ReusableMethods {
         }
         return elemTexts;
     }
+<<<<<<< HEAD
+=======
+
+>>>>>>> emrehan
     //========Returns the Text of the element given an element locator==//
     public static List<String> getElementsText(By locator) {
         List<WebElement> elems = Driver.getDriver().findElements(locator);
@@ -68,7 +95,13 @@ public class ReusableMethods {
         }
         return elemTexts;
     }
+<<<<<<< HEAD
     //===============Thread.sleep Wait==============//
+=======
+
+    //===============Explicit Wait==============//
+
+>>>>>>> emrehan
     public static void waitFor(int sec) {
         try {
             Thread.sleep(sec * 1000);
@@ -76,23 +109,43 @@ public class ReusableMethods {
             e.printStackTrace();
         }
     }
+<<<<<<< HEAD
     //===============Explicit Wait==============//
+=======
+
+>>>>>>> emrehan
     public static WebElement waitForVisibility(WebElement element, int timeToWaitInSec) {
         WebDriverWait wait = new WebDriverWait(Driver.getDriver(), timeToWaitInSec);
         return wait.until(ExpectedConditions.visibilityOf(element));
     }
+<<<<<<< HEAD
+=======
+
+>>>>>>> emrehan
     public static WebElement waitForVisibility(By locator, int timeout) {
         WebDriverWait wait = new WebDriverWait(Driver.getDriver(), timeout);
         return wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
     }
+<<<<<<< HEAD
+=======
+
+>>>>>>> emrehan
     public static WebElement waitForClickablility(WebElement element, int timeout) {
         WebDriverWait wait = new WebDriverWait(Driver.getDriver(), timeout);
         return wait.until(ExpectedConditions.elementToBeClickable(element));
     }
+<<<<<<< HEAD
+=======
+
+>>>>>>> emrehan
     public static WebElement waitForClickablility(By locator, int timeout) {
         WebDriverWait wait = new WebDriverWait(Driver.getDriver(), timeout);
         return wait.until(ExpectedConditions.elementToBeClickable(locator));
     }
+<<<<<<< HEAD
+=======
+
+>>>>>>> emrehan
     public static void waitForPageToLoad(long timeOutInSeconds) {
         ExpectedCondition<Boolean> expectation = new ExpectedCondition<Boolean>() {
             public Boolean apply(WebDriver driver) {
@@ -108,6 +161,10 @@ public class ReusableMethods {
                     "Timeout waiting for Page Load Request to complete after " + timeOutInSeconds + " seconds");
         }
     }
+<<<<<<< HEAD
+=======
+
+>>>>>>> emrehan
     //======Fluent Wait====//
     public static WebElement fluentWait(final WebElement webElement, int timeinsec) {
         FluentWait<WebDriver> wait = new FluentWait<WebDriver>(Driver.getDriver())
@@ -120,4 +177,9 @@ public class ReusableMethods {
         });
         return element;
     }
+<<<<<<< HEAD
 }
+=======
+
+}
+>>>>>>> emrehan

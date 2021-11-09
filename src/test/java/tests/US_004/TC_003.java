@@ -1,17 +1,13 @@
 package tests.US_004;
 
-import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.ConcortHPage;
 import utilities.ConfigReader;
 import utilities.Driver;
 
-
-
-public class TC_001 {
-
-//otel oluşturma pozitif test
-
+public class TC_003 {
+    //negatif test
+    //name boş bırakılıyor
     @Test
     public void test() throws InterruptedException {
         Driver.getDriver().get(ConfigReader.getProperty("url"));
@@ -25,7 +21,7 @@ public class TC_001 {
         concortHPage.AddHotelLink.click();
 
         concortHPage.Code.sendKeys(ConfigReader.getProperty("code"));
-        concortHPage.Name.sendKeys(ConfigReader.getProperty("name"));
+        concortHPage.Name.sendKeys(ConfigReader.getProperty("name1"));
         concortHPage.Adres.sendKeys(ConfigReader.getProperty("adres"));
         concortHPage.Phone.sendKeys(ConfigReader.getProperty("tlf"));
         concortHPage.Gmail.sendKeys(ConfigReader.getProperty("mail"));
@@ -34,8 +30,8 @@ public class TC_001 {
 
         concortHPage.Savebutonu.click();
         Thread.sleep(3000);
-        Assert.assertTrue(concortHPage.Savebutonu.isDisplayed());
-        System.out.println("Hotel was inserted successfully");
         Driver.closeDriver();
+
     }
+
 }
