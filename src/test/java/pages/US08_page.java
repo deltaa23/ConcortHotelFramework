@@ -76,9 +76,45 @@ public class US08_page {
     public WebElement isPaid;
 
     @FindBy(id = "btnSubmit")
-    public WebElement btnSubmit;
+    public WebElement saveButton;
 
     @FindBy(xpath = "//*[text()='RoomReservation was inserted successfully']")
     public WebElement successMessage;
+
+    @FindBy(xpath = "//button[@data-bb-handler='ok']")
+    public WebElement okButton;
+
+    @FindBy(xpath = "//label[@class='error']")
+    public List<WebElement> errorTexts;
+
+    @FindBy(xpath = "//div[text()='Fill All Fields Please']")
+    public WebElement fillallfieldstext;
+
+    @FindBy(xpath = "//div[@class='portlet-title']")
+    public WebElement hotelRoomReservationTitle;
+
+    @FindBy(xpath = "//a[@class='collapse']")
+    public WebElement collapseIcon;
+
+   @FindBy(xpath = "//a[@class='expand']")
+    public WebElement expandIcon;
+
+   @FindBy(xpath = "//a[@class='config']")
+    public WebElement settingsIcon;
+
+   @FindBy(xpath = "//button[text()='Save changes']")
+    public WebElement saveChanges;
+
+   @FindBy (xpath = "//button[text()='Close']")
+    public WebElement closeButton;
+
+   @FindBy (xpath = "//a[@class='reload']")
+    public WebElement reloadIcon;
+
+   @FindBy (xpath = "//a[@class='remove']")
+    public WebElement removeIcon;
+
+   @FindBy (xpath = "//div")
+    public List <WebElement> totalElements;
 
 }

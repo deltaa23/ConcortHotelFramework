@@ -1,20 +1,26 @@
 package tests.US_001;
 
 import org.testng.Assert;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.Test;
-import pages.ConcortHotelPage;
+import pages.US01_page;
 import utilities.Driver;
+import utilities.TestBaseReport;
 
-public class TC_001 {
+public class TC_001 extends TestBaseReport {
 
-    ConcortHotelPage concortHotelPage = new ConcortHotelPage();
+    US01_page us01_page = new US01_page();
 
     @Test
-    public void girisTesti(){
-        concortHotelPage.anaSayfa();
+    public void girisTesti() {
+        us01_page.anaSayfa();
         String actualUrl = Driver.getDriver().getCurrentUrl();
         String expectedUrl = "https://qa-environment.concorthotel.com/";
-        Assert.assertEquals(actualUrl,expectedUrl,"url ler uyusmuyor");
+        Assert.assertEquals(actualUrl, expectedUrl, "url ler uyusmuyor");
+        Driver.closeDriver();
+    }
+    @AfterClass
+    public void tearDown(){
         Driver.closeDriver();
     }
 

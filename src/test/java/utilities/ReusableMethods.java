@@ -7,6 +7,8 @@ import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.annotations.BeforeMethod;
+import pages.LoginPage;
 
 import java.io.File;
 import java.io.IOException;
@@ -18,6 +20,16 @@ import java.util.concurrent.TimeUnit;
 import java.util.function.Function;
 
 public class ReusableMethods {
+
+    public static void setup() {
+        LoginPage loginPage = new LoginPage();
+        Driver.getDriver().get(ConfigReader.getProperty("url"));
+        ReusableMethods.waitFor(2);
+        loginPage.ilkLoginLinki.click();
+        loginPage.usernameKutusu.sendKeys(ConfigReader.getProperty("username"));
+        loginPage.passwordKutusu.sendKeys(ConfigReader.getProperty("password"));
+        loginPage.loginButonu.click();
+    }
     public static String getScreenshot(String name) throws IOException {
         // naming the screenshot with the current date to avoid duplication
         String date = new SimpleDateFormat("yyyyMMddhhmmss").format(new Date());

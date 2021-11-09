@@ -18,6 +18,8 @@ public class TC_002 extends TestBaseReport {
     Faker faker = new Faker();
 
     public void setUp(){
+        ReusableMethods.setup();
+        ReusableMethods.waitFor(2);
         page.hotelManagementLinki.click();
         page.roomReservationButton.click();
 
@@ -70,7 +72,8 @@ public class TC_002 extends TestBaseReport {
         page.contactNameSurname.sendKeys(faker.name().fullName());
 
         extentTest.info("ContactPhone kismina telno girdi");
-        page.contactPhone.sendKeys(faker.phoneNumber().cellPhone());
+
+        page.contactPhone.sendKeys(ConfigReader.getProperty("validPhoneNum"));
 
         extentTest.info("ContactEmail kismina emaild girdi");
         page.contactEmail.sendKeys(faker.internet().emailAddress());
@@ -85,7 +88,7 @@ public class TC_002 extends TestBaseReport {
         page.isPaid.click();
 
         extentTest.info("Save butonunu tiklandi");
-        page.btnSubmit.click();
+        page.saveButton.click();
 
         extentTest.info("Room Reservation was inserted successfully yazisinin gorundugunu dogrulandi");
         ReusableMethods.waitFor(2);
@@ -93,6 +96,7 @@ public class TC_002 extends TestBaseReport {
         String actualMessage = page.successMessage.getText();
         softAssert.assertEquals(actualMessage,expectedMessage,"Succesfull message is not as expected");
 
+        page.okButton.click();
         softAssert.assertAll();
         extentTest.pass("PASS");
     }
