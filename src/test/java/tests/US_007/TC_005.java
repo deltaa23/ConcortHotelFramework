@@ -19,8 +19,8 @@ public class TC_005 {
     //5)value gir
     //6)Save e tikla "Value added" HTML alert gorulebilir oldugunu dogrula
     //7)ok a tikla
-    //8)update e tikla "Value was updated Succesfully" html alert gorundugunu dogrula
-    //9)Remove a tikla "Do you want to delete this barcode?"html alert gorundugunu dogrula
+       //*8)update e tikla "Value was updated Succesfully" html alert gorundugunu dogrula
+       //*9)Remove a tikla "Do you want to delete this barcode?"html alert gorundugunu dogrula
     //10) ok a tiklayina "Value was deleted Succesfully" html alert geldiini dogrula
 
 
