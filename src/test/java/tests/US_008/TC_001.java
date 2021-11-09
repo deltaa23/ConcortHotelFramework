@@ -1,12 +1,5 @@
 package tests.US_008;
 
-<<<<<<< HEAD
-public class TC_001 {
-<<<<<<< HEAD
-//
-    //
-    //
-=======
 import org.openqa.selenium.support.ui.Select;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
@@ -88,13 +81,5 @@ public class TC_001 extends TestBaseReport {
         softAssert.assertAll();
         extentTest.pass("PASS");
     }
->>>>>>> db6130d0e8e055f3dfc880cbd8a83916b3f00fac
 
-=======
-//Change from github master
->>>>>>> emrehan
 }
-
-
-
-
