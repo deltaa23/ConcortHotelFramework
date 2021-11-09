@@ -74,6 +74,40 @@ public class US10_page {
 
 
 
+    @FindBy(xpath = "//label[@for='checkin_date']")
+    public WebElement checkinDateErrorText;
+
+    @FindBy(xpath = "//label[@for='checkout_date']")
+    public WebElement checkoutDateErrorText;
+
+    @FindBy(xpath = "//label[@for='AdultCount']")
+    public WebElement adultCountErrorText;
+
+    @FindBy(xpath = "//label[@for='ChildrenCount']")
+    public WebElement childrenCountErrorText;
+
+    @FindBy(xpath = "//label[@for='NameOnCreditCard']")
+    public WebElement nameOnCreditCardErrorText;
+
+    @FindBy(xpath = "//label[@for='CreditCardNumber']")
+    public WebElement creditCardNumberErrorText;
+
+    @FindBy(xpath = "//label[@for='CreditCardExpirationYear']")
+    public WebElement creditCardExpirationYearErrorText;
+
+    @FindBy(xpath = "//label[@for='CreditCardExpirationMonth']")
+    public WebElement ceditCardExpirationMonthErrorText;
+
+    @FindBy(xpath = "//label[@for='CVV']")
+    public WebElement cvvErrorText;
+
+    @FindBy(xpath = "//label[@for='Message']")
+    public WebElement messageErrorText;
+
+
+
+
+
 
 
 
