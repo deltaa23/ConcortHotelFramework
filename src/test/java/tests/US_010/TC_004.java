@@ -1,33 +1,31 @@
 package tests.US_010;
 
-
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import org.testng.asserts.SoftAssert;
 import pages.US10_page;
 import utilities.ConfigReader;
 import utilities.Driver;
 import utilities.ReusableMethods;
 
-public class TC_002 {
+public class TC_004 {
 
-
+//Giris tarihi textbox'ina gecerli ve ileri tarihli bir veri girin
+//Cikis tarihi textbox'ina gecerli ve ileri tarihli bir veri girin
+//Adult Count dropdown'ina tiklayip bir vizible texti sec
+//Children Count dropdown'ina tiklayip bir vizible texti sec
+//Harflerden olusan bir Kredi karti name datasi gir
+//13 rakamdan olusan eksik Kredi karti numarasi datasi gir
+//Kredi karti son kullanma yili dropbox'indan bir visible text sec
+//Kredi karti son kullanma ayi dropbox'indan bir visible text sec
+//CVV textbox'ina 3 rakamdan olusan bir data gir
+//Mesaj textbox'ina gecerli bir data gir
+//Book this room butonuna tikla
 
     @Test
-    public void pozitiveTest() {
-        //Giris tarihi textbox'ina gecerli ve ileri tarihli bir veri girin
-        //Cikis tarihi textbox'ina gecerli ve ileri tarihli bir veri girin
-        //Adult Count dropdown'ina tiklayip bir vizible texti sec
-        //Children Count dropdown'ina tiklayip bir vizible texti sec
-        //Harflerden olusan bir Kredi karti name datasi gir
-        //16 rakamdan olusan Kredi karti numarasi datasi gir
-        //Kredi karti son kullanma yili dropbox'indan bir visible text sec
-        //Kredi karti son kullanma ayi dropbox'indan bir visible text sec
-        //CVV textbox'ina 3 rakamdan olusan bir data gir
-        //Mesaj textbox'ina gecerli bir data gir
-        //Book this room butonuna tikla
-        //"Reservation was made successfully" yazisinin gorundugunu dogrula
+    public void negativeMissingCreditCard() {
 
         US10_page us10_page = new US10_page();
         Driver.getDriver().get(ConfigReader.getProperty("url"));
@@ -51,7 +49,7 @@ public class TC_002 {
 
         us10_page.nameOnCreditCardTextbox.sendKeys("Mathiew Mcdonald");
 
-        us10_page.creditCardNumberTextbox.sendKeys("1234123412341234");
+        us10_page.creditCardNumberTextbox.sendKeys("1234123412341");
 
         Select selectCCExpirationYear = new Select(us10_page.creditCardExpirationYearTextbox);
         selectCCExpirationYear.selectByIndex(3);
@@ -66,10 +64,10 @@ public class TC_002 {
         us10_page.bookThisRoomButton.click();
 
         ReusableMethods.waitFor(3);
-        Assert.assertTrue(us10_page.reservationsuccessfullyText.isDisplayed());
 
-        us10_page.okSuccessfullyButton.click();
+        SoftAssert softAssert = new SoftAssert();
+        softAssert.assertTrue(us10_page.creditCardNumberErrorText.isDisplayed(),"Credit Card Number hata mesaji goruntulenemedi");
+
+        softAssert.assertAll();
     }
-
-
 }
