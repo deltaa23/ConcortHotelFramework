@@ -25,15 +25,10 @@ public class ConcortHPage {
     @FindBy(id = "btnSubmit")
     public WebElement loginButonu;
 
-    @FindBy(xpath = "//*[text()='List Of Hotelrooms']")
-    public WebElement listofHotelRoomsYazisi;
 
-    @FindBy(xpath = "(//div[@class='caption'])[1]")
-    public WebElement editHotelRoomYazisi;
-
-
-    @FindBy(xpath = "//*[@class='Hotel Management']")
+    @FindBy (xpath = "//span[text()='Hotel Management']")
     public WebElement HotelManagement;
+
 
     @FindBy(partialLinkText = "Hotel List")
     public WebElement HotelListLink;
@@ -61,6 +56,7 @@ public class ConcortHPage {
 
     @FindBy(id = "btnSubmit")
     public WebElement Savebutonu;
+
 
 
 }
