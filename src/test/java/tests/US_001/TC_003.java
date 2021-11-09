@@ -3,6 +3,7 @@ package tests.US_001;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import pages.US01_page;
@@ -56,5 +57,9 @@ public class TC_003 extends TestBaseReport {
         Assert.assertTrue(!title.equals(newTitle),"instagram linki calismiyor");
         extentTest.fail("test basarisiz");
 
+    }
+    @AfterClass
+    public void tearDown(){
+        Driver.closeDriver();
     }
 }
