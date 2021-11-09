@@ -88,6 +88,19 @@ public class US07_page {
     @FindBy(xpath = "//*[text()='Value added']")
     public WebElement valueAddedHtml;
 
+    @FindBy(xpath = "(//button[@class='btn green'])[2]")
+    public WebElement propertiesSaveButonu;
+
+    @FindBy(xpath = "//div[@class='bootbox-body']")
+    public WebElement propertiesHtmlValueAlert;
+
+    @FindBy(xpath = "(//button[@class='btn btn-primary'])[1]")
+    public WebElement deleteOkHtml;
+
+    @FindBy(xpath = "//div[@class='bootbox-body']")
+    public WebElement deleteError;
+
+
 
 
     public void loginCH() throws InterruptedException {
@@ -100,6 +113,7 @@ public class US07_page {
         uS07page.usernameKutusu.sendKeys(ConfigReader.getProperty("username"));
         uS07page.passwordKutusu.sendKeys(ConfigReader.getProperty("password"));
         uS07page.loginButonu.click();
+
     }
 
 
