@@ -4,9 +4,10 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.US07_page;
 import utilities.ReusableMethods;
+import utilities.TestBaseReport;
 
 
-public class TC_007 {
+public class TC_007 extends TestBaseReport {
     //1)Delete butonunun gorunebildigini dogrula
     //2)Delete butonuna tikla
     //3) "Would you like to continue?" html alert geldigini dogrula
@@ -19,14 +20,20 @@ public class TC_007 {
 
     @Test
     public void deleteTest(){
+        extentTest=extentReports.createTest("Delete testi","Delete tusu erisilebilirlik testi");
+
         setup.setUp();
 
         ReusableMethods.waitFor(3);
         ReusableMethods.hover(page.deleteButonu);
+        extentTest.info("delete butonu gorunwbilir");
         ReusableMethods.waitFor(2);
         page.deleteButonu.click();
+        extentTest.info("delete butonu clickable");
         page.deleteOkHtml.click();
         Assert.assertTrue(page.deleteError.isEnabled());
+        extentTest.fail("Delete butonu aktif degil");
+
 
 
 

@@ -12,8 +12,9 @@ import pages.US07_page;
 import utilities.ConfigReader;
 import utilities.Driver;
 import utilities.ReusableMethods;
+import utilities.TestBaseReport;
 
-public class TC_002 {
+public class TC_002 extends TestBaseReport {
     //1)Hotel dropdown ile degistir
     //2)Code kismina degistir
     //3)Name kismini degistir
@@ -27,9 +28,11 @@ public class TC_002 {
 
     @Test
             public void test() throws InterruptedException {
+        extentTest=extentReports.createTest("Hotel Rooms guncelleme testi","General Data degistirilir");
         US07_page uS07page = new US07_page();
         uS07page.loginCH();
         ReusableMethods.waitFor(2);
+
         Driver.getDriver().get(ConfigReader.getProperty("hrpage"));
         ReusableMethods.waitFor(2);
         JavascriptExecutor jse=(JavascriptExecutor) Driver.getDriver();
@@ -39,6 +42,7 @@ public class TC_002 {
         ReusableMethods.waitFor(2);
 
         uS07page.detailsButonu.click();
+        extentTest.info("user giris yaptı ve ilgili sayfada");
 
 
         Faker faker=new Faker();
@@ -67,8 +71,10 @@ public class TC_002 {
                 .sendKeys(Keys.ENTER)
                 .perform();
 
+        extentTest.info("bilgiler degisitrildi");
 
         Assert.assertTrue(uS07page.saveBasariliHtmlError.isEnabled());
+        extentTest.pass("PASS");
 
 
 
