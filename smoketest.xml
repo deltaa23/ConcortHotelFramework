@@ -6,7 +6,6 @@
                 <include name="smoke"/>
             </run>
         </groups>
-
         <packages>
             <package name="tests.smokeTest">
 
