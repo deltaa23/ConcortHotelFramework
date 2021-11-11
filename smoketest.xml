@@ -8,7 +8,9 @@
         </groups>
 
         <packages>
-            <package name="smokeTests"></package>
+            <package name="tests.smokeTest">
+
+            </package>
         </packages>
     </test>
 </suite>
